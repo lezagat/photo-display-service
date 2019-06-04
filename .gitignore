@@ -13,3 +13,6 @@ logs
 
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 public/bundle.js
+
+# Fake Data #
+db/fakeData/*
