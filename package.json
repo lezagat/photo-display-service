@@ -4,7 +4,7 @@
   "description": "photos module for zagat",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose --watchAll",
+    "test": "jest --verbose",
     "test:coverage": "jest --verbose --coverage",
     "build": "webpack",
     "data": "node db/generateDataNoSQL.js",

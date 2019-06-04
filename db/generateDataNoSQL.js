@@ -1,7 +1,7 @@
 const faker = require('faker');
-const { imageUrls, restaurantNames } = require('./data.js');
 const fs = require('fs');
 const zlib = require('zlib');
+const { imageUrls, restaurantNames } = require('./data.js');
 
 const generateNums = (n) => {
   const numbers = [];
@@ -41,7 +41,7 @@ const compress = (records) => {
     });
   });
   return promise;
-}
+};
 
 const writeFile = (index, data) => {
   const promise = new Promise((resolve, reject) => {
@@ -54,18 +54,18 @@ const writeFile = (index, data) => {
     });
   });
   return promise;
+};
+
+async function asyncCall(i) {
+  const records = generateRecords();
+  await compress(records)
+    .then(data => writeFile(i, data))
+    .then(() => console.log('write file'))
+    .catch((err) => {
+      throw err;
+    });
 }
 
-async function asyncCall() {
-  for (let i = 1; i <= 100; i++) {
-    const records = generateRecords();
-    await compress(records)
-      .then((data) => writeFile(i, data))
-      .then(() => console.log('write file'))
-      .catch((err) => {
-        throw err;
-      });
-  }
+for (let i = 0; i < 100; i += 1) {
+  asyncCall(i);
 }
-
-asyncCall();

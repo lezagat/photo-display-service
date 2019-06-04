@@ -1,5 +1,4 @@
-/* eslint-disable no-undef */
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
 const OpenGridBox = styled.div`
     position: absolute;
