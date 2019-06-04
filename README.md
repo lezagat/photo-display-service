@@ -11,8 +11,9 @@
 ## Table of Contents
 
 1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+2. [Requirements](#requirements)
+3. [Development](#development)
+4. [API](#API)
 
 ## Usage
 
@@ -37,3 +38,8 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
+## API
+- **[<code>GET</code> api/restaurants/:id](https://github.com/500px/api-documentation/blob/master/endpoints/photo/GET_photos_id.md)**
+- **[<code>POST</code> api/restaurants/:id](https://github.com/500px/api-documentation/blob/master/endpoints/photo/GET_photos_id.md)**
+- **[<code>PUT</code> api/restaurants/:id](https://github.com/500px/api-documentation/blob/master/endpoints/photo/GET_photos_id.md)**
+- **[<code>DELETE</code> api/restaurants/:id](https://github.com/500px/api-documentation/blob/master/endpoints/photo/GET_photos_id.md)**
