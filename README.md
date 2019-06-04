@@ -39,7 +39,6 @@ npm install -g webpack
 npm install
 ```
 ## API
-- **[<code>GET</code> api/restaurants/:id](https://github.com/500px/api-documentation/blob/master/endpoints/photo/GET_photos_id.md)**
-- **[<code>POST</code> api/restaurants/:id](https://github.com/500px/api-documentation/blob/master/endpoints/photo/GET_photos_id.md)**
-- **[<code>PUT</code> api/restaurants/:id](https://github.com/500px/api-documentation/blob/master/endpoints/photo/GET_photos_id.md)**
-- **[<code>DELETE</code> api/restaurants/:id](https://github.com/500px/api-documentation/blob/master/endpoints/photo/GET_photos_id.md)**
+- **[<code>GET</code> api/restaurants/:id/photos](https://github.com/500px/api-documentation/blob/master/endpoints/photo/GET_photos_id.md)**
+- **[<code>POST</code> api/restaurants/:id/photos](https://github.com/500px/api-documentation/blob/master/endpoints/photo/GET_photos_id.md)**
+- **[<code>DELETE</code> api/restaurants/:id/photos](https://github.com/500px/api-documentation/blob/master/endpoints/photo/GET_photos_id.md)**
