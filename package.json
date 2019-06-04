@@ -4,10 +4,11 @@
   "description": "photos module for zagat",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose --watchAll",
+    "test": "jest --verbose",
     "test:coverage": "jest --verbose --coverage",
     "build": "webpack",
-    "seed": "node db/generateData.js",
+    "nosqldata": "node db/generateDataNoSQL.js",
+    "sqldata": "node db/generateDataSQL.js",
     "start": "node server/server.js"
   },
   "lint-staged": {

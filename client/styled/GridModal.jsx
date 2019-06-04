@@ -1,6 +1,4 @@
-/* eslint-disable no-undef */
-// import styled from 'styled-components';
-// import { zoomOut } from './Keyframes';
+import styled from 'styled-components';
 
 export const GridViewer = styled.div`
   @keyframes zoomOut {
