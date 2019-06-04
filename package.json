@@ -7,7 +7,8 @@
     "test": "jest --verbose",
     "test:coverage": "jest --verbose --coverage",
     "build": "webpack",
-    "data": "node db/generateDataNoSQL.js",
+    "nosqldata": "node db/generateDataNoSQL.js",
+    "sqldata": "node db/generateDataSQL.js",
     "start": "node server/server.js"
   },
   "lint-staged": {

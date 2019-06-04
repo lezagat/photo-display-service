@@ -15,4 +15,5 @@ logs
 public/bundle.js
 
 # Fake Data #
-db/fakeData/*
+db/fake-data-nosql/*
+db/fake-data-sql/*

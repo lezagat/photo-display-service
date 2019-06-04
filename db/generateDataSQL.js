@@ -19,20 +19,22 @@ const generateRecords = () => {
     const n = faker.random.number({ min: 7, max: 10 });
     faker.helpers.shuffle(arr);
     const newArr = arr.slice(0, n).map(num => imageUrls[num]);
-
-    records.push({
-      restaurantId: i + 1,
-      name: faker.random.arrayElement(restaurantNames),
-      photos: newArr,
-    });
+    const id = i + 1;
+    const name = faker.random.arrayElement(restaurantNames);
+    for (let j = 0; j < newArr.length; j += 1) {
+      records.push(`
+        ${id},
+        ${name},
+        ${newArr[j]}
+      `);
+    }
   }
-
-  return records;
+  return records.join('\n');
 };
 
 const compress = (records) => {
   const promise = new Promise((resolve, reject) => {
-    zlib.deflate(JSON.stringify(records), (err, result) => {
+    zlib.deflate(records, (err, result) => {
       if (err) {
         reject(err);
       } else {
@@ -45,7 +47,7 @@ const compress = (records) => {
 
 const writeFile = (index, data) => {
   const promise = new Promise((resolve, reject) => {
-    fs.writeFile(`${__dirname}/fake-data-nosql/data${index}.txt`, data, (err) => {
+    fs.writeFile(`${__dirname}/fake-data-sql/data${index}.txt`, data, (err) => {
       if (err) {
         reject(err);
       } else {
