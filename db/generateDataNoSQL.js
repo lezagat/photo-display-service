@@ -13,13 +13,13 @@ const generateNums = (n) => {
 
 const arr = generateNums(30);
 
-const generateRecords = () => {
+const generateRecords = (val) => {
   const records = [];
-  for (let i = 0; i < 100000; i += 1) {
+  const startIndex = 100000 * val;
+  for (let i = startIndex; i < startIndex + 100000; i += 1) {
     const n = faker.random.number({ min: 7, max: 10 });
     faker.helpers.shuffle(arr);
     const newArr = arr.slice(0, n).map(num => imageUrls[num]);
-
     records.push({
       restaurantId: i + 1,
       name: faker.random.arrayElement(restaurantNames),
@@ -56,19 +56,9 @@ const writeFile = (index, data) => {
   return promise;
 };
 
-// async function asyncCall(i) {
-//   const records = generateRecords();
-//   await compress(records)
-//     .then(data => writeFile(i, data))
-//     .then(() => console.log('write file'))
-//     .catch((err) => {
-//       throw err;
-//     });
-// }
-
-async function asyncCall2() {
-  for (let i = 1; i <= 100; i += 1) {
-    const records = generateRecords();
+async function asyncCall() {
+  for (let i = 0; i < 100; i += 1) {
+    const records = generateRecords(i);
     await compress(records)
       .then(data => writeFile(i, data))
       .then(() => console.log(`write file ${i}`))
@@ -78,9 +68,4 @@ async function asyncCall2() {
   }
 }
 
-
-// for (let i = 1; i <= 100; i += 1) {
-//   asyncCall(i);
-// }
-
-asyncCall2();
+asyncCall();

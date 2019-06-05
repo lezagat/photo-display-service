@@ -12,7 +12,7 @@ Deletes a photo for a specific restaurant
 ```
 {
   "id": [integer],
-  "photo": [string]
+  "photo_id": [integer]
 }
 ```
 

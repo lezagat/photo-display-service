@@ -12,7 +12,8 @@ Updates a photo for a specific restaurant
 ```
 {
   "id": [integer],
-  "photo": [string]
+  "photo_id": [integer],
+  "photo_url": [string]
 }
 ```
 ***
