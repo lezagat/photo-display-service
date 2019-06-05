@@ -9,9 +9,12 @@ Updates a photo for a specific restaurant
 
 ## Body Params
 **Required:**
-    `id=[integer]`
-    `photo_url=[string]`
-
+``` json
+{
+  "id": [integer],
+  "photo": [string]
+}
+```
 ***
 
 ## Return format
