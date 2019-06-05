@@ -7,7 +7,7 @@ Add photo for a specific restaurant
 
 ***
 
-## URL Params
+## Body Params
 **Required:**
     `id=[integer]`
     `photo_url=[string]`
@@ -15,7 +15,7 @@ Add photo for a specific restaurant
 ***
 
 ## Return format
-A JSON object containing keys **restaurant_id**, **restaurant_name**, and **photos**.
+A JSON object containing keys **restaurant_id**, **restaurant_name**, and **photo**.
 
 ***
 

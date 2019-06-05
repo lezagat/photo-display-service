@@ -7,7 +7,7 @@ Deletes a photo for a specific restaurant
 
 ***
 
-## URL Params
+## Body Params
 **Required:**
     `id=[integer]`
     `photo_url=[string]`
