@@ -71,7 +71,7 @@ async function asyncCall2() {
     const records = generateRecords();
     await compress(records)
       .then(data => writeFile(i, data))
-      .then(() => console.log('write file'))
+      .then(() => console.log(`write file ${i}`))
       .catch((err) => {
         throw err;
       });

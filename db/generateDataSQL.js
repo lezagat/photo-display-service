@@ -47,7 +47,7 @@ const compress = (records) => {
 
 const writeFile = (index, data) => {
   const promise = new Promise((resolve, reject) => {
-    fs.writeFile(`${__dirname}/fake-data-sql/data${index}.txt`, data, (err) => {
+    fs.writeFile(`${__dirname}/fake-data-sql/data${index}.csv`, data, (err) => {
       if (err) {
         reject(err);
       } else {
@@ -58,22 +58,12 @@ const writeFile = (index, data) => {
   return promise;
 };
 
-// async function asyncCall(i) {
-//   const records = generateRecords();
-//   await compress(records)
-//     .then(data => writeFile(i, data))
-//     .then(() => console.log('write file'))
-//     .catch((err) => {
-//       throw err;
-//     });
-// }
-
 async function asyncCall2() {
   for (let i = 1; i <= 100; i += 1) {
     const records = generateRecords();
     await compress(records)
       .then(data => writeFile(i, data))
-      .then(() => console.log('write file'))
+      .then(() => console.log(`write file ${i}`))
       .catch((err) => {
         throw err;
       });

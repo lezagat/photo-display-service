@@ -35,7 +35,7 @@ A JSON object containing keys **restaurant_id**, **restaurant_name**, and **phot
 ## Example
 **Request**
 
-    api/restaurants/1076/photos
+    api/restaurants/photos
 
 **Return** __shortened for example purpose__
 ``` json
