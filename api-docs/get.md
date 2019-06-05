@@ -7,15 +7,23 @@ Returns all photos for a specific restaurant
 
 ***
 
+## URL Params
+**Required:**
+    id:[integer]
+***
+
 ## Return format
 A JSON object containing keys **restaurant_id**, **restaurant_name**, and **photos**, where **photos** is an array containing the photo urls.
+
+## Success
+
+- **200** 
 
 ***
 
 ## Errors
 
 - **404** — Photo with the specified ID does not exist.
-
 
 ***
 

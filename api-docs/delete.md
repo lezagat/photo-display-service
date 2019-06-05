@@ -1,14 +1,27 @@
 # Photo Resources
 
-    DELETE api/restaurants/:id/photos
+    DELETE api/restaurants/photos
 
 ## Description
 Deletes a photo for a specific restaurant
 
 ***
 
+## URL Params
+**Required:**
+    id:[integer]
+    photo_url:[string]
+
+***
+
 ## Return format
 A JSON object containing keys **restaurant_id**, **restaurant_name**, and **photo**.
+
+***
+
+## Success
+
+- **200** 
 
 ***
 

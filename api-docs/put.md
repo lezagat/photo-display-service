@@ -1,9 +1,9 @@
 # Photo Resources
 
-    POST api/restaurants/photos
+    PUT api/restaurants/photos
 
 ## Description
-Add photo for a specific restaurant
+Updates a photo for a specific restaurant
 
 ***
 
@@ -15,7 +15,7 @@ Add photo for a specific restaurant
 ***
 
 ## Return format
-A JSON object containing keys **restaurant_id**, **restaurant_name**, and **photos**.
+A JSON object containing keys **restaurant_id**, **restaurant_name**, and **photo**.
 
 ***
 
