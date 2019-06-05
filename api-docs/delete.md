@@ -42,6 +42,6 @@ A JSON object containing keys **restaurant_id**, **restaurant_name**, and **phot
 {
   "restaurant_id": 1076,
   "restaurant_name": "Narisawa",
-  "photos": "https://s3.amazonaws.com/eugeniazagatphotos/clfdzqzfc0.jpg"
+  "photo": "https://s3.amazonaws.com/eugeniazagatphotos/clfdzqzfc0.jpg"
 }
 ```
