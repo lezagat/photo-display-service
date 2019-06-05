@@ -40,5 +40,6 @@ npm install
 ```
 ## API
 - **[<code>GET</code> api/restaurants/:id/photos](https://github.com/lezagat/photo-display-service/blob/master/api-docs/get.md)**
-- **[<code>POST</code> api/restaurants/:id/photos](https://github.com/lezagat/photo-display-service/blob/master/api-docs/post.md)**
-- **[<code>DELETE</code> api/restaurants/:id/photos](https://github.com/lezagat/photo-display-service/blob/master/api-docs/delete.md)**
+- **[<code>POST</code> api/restaurants/photos](https://github.com/lezagat/photo-display-service/blob/master/api-docs/post.md)**
+- **[<code>DELETE</code> api/restaurants/photos](https://github.com/lezagat/photo-display-service/blob/master/api-docs/delete.md)**
+- **[<code>PUT</code> api/restaurants/photos](https://github.com/lezagat/photo-display-service/blob/master/api-docs/put.md)**
