@@ -9,7 +9,7 @@ Add photo for a specific restaurant
 
 ## Body Params
 **Required:**
-``` json
+```
 {
   "id": [integer],
   "photo": [string]
