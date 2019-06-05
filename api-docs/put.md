@@ -9,8 +9,8 @@ Updates a photo for a specific restaurant
 
 ## URL Params
 **Required:**
-    id:[integer]
-    photo_url:[string]
+    `id=[integer]`
+    `photo_url=[string]`
 
 ***
 

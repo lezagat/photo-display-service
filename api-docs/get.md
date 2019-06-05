@@ -9,7 +9,7 @@ Returns all photos for a specific restaurant
 
 ## URL Params
 **Required:**
-    id:[integer]
+    `id=[integer]`
 ***
 
 ## Return format
