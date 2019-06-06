@@ -9,6 +9,8 @@
     "build": "webpack",
     "nosqldata": "node db/generateDataNoSQL.js",
     "sqldata": "node db/generateDataSQL.js",
+    "seedp": "dropdb photo_display; createdb photo_display && node db/decompress.js && psql photo_display < db/schema.sql && rm db/fake-data-sql/rawData.csv",
+    "seedc": "cqlsh -f db/schema.cql",
     "start": "node server/server.js"
   },
   "lint-staged": {

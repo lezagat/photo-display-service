@@ -11,64 +11,43 @@ const generateNums = (n) => {
   return numbers;
 };
 
+const rawDataPath = `${__dirname}/fake-data-sql/rawData.csv`;
+const compressedDataPath = `${__dirname}/fake-data-sql/compressedData.csv`;
 const arr = generateNums(30);
+const stream = fs.createWriteStream(rawDataPath);
+let i = 0;
 
-const generateRecords = (val) => {
-  const records = [];
-  const startIndex = 100000 * val;
-  for (let i = startIndex; i < startIndex + 100000; i += 1) {
+const generateRecords = () => {
+  while (i < 10000000) {
     const n = faker.random.number({ min: 7, max: 10 });
     faker.helpers.shuffle(arr);
     const newArr = arr.slice(0, n).map(num => imageUrls[num]);
     const name = faker.random.arrayElement(restaurantNames);
+    let str = '';
     for (let j = 0; j < newArr.length; j += 1) {
-      records.push(`
-        ${i + 1},
-        ${name},
-        ${i + 1},
-        ${newArr[j]}
-      `);
+      str += `${i + 1},${name},${newArr[j]}\n`;
     }
+    if (!stream.write(str)) {
+      return;
+    }
+    i += 1;
   }
-  return records.join('\n');
-};
-
-const compress = (records) => {
-  const promise = new Promise((resolve, reject) => {
-    zlib.deflate(records, (err, result) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(result);
-      }
-    });
+  stream.end();
+  console.timeEnd('generate records');
+  console.time('zip');
+  const readStream = fs.createReadStream(rawDataPath);
+  const writeStream = fs.createWriteStream(compressedDataPath);
+  const zip = zlib.createDeflate();
+  readStream.pipe(zip).pipe(writeStream).on('finish', () => {
+    readStream.destroy();
+    writeStream.end();
+    fs.unlinkSync(rawDataPath);
+    console.timeEnd('zip');
   });
-  return promise;
 };
 
-const writeFile = (index, data) => {
-  const promise = new Promise((resolve, reject) => {
-    fs.writeFile(`${__dirname}/fake-data-sql/data${index}.csv`, data, (err) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve();
-      }
-    });
-  });
-  return promise;
-};
-
-async function asyncCall() {
-  for (let i = 0; i < 100; i += 1) {
-    const records = generateRecords(i);
-    await compress(records)
-      .then(data => writeFile(i, data))
-      .then(() => console.log(`write file ${i}`))
-      .catch((err) => {
-        throw err;
-      });
-  }
-}
-
-asyncCall();
+stream.on('drain', () => {
+  generateRecords();
+});
+console.time('generate records');
+generateRecords();
