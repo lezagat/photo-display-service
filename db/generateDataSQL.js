@@ -22,12 +22,7 @@ const generateRecords = (val) => {
     const newArr = arr.slice(0, n).map(num => imageUrls[num]);
     const name = faker.random.arrayElement(restaurantNames);
     for (let j = 0; j < newArr.length; j += 1) {
-      records.push(`
-        ${i + 1},
-        ${name},
-        ${i + 1},
-        ${newArr[j]}
-      `);
+      records.push(`${i + 1},${name},${newArr[j]}`);
     }
   }
   return records.join('\n');
@@ -46,9 +41,9 @@ const compress = (records) => {
   return promise;
 };
 
-const writeFile = (index, data) => {
+const appendFile = (data) => {
   const promise = new Promise((resolve, reject) => {
-    fs.writeFile(`${__dirname}/fake-data-sql/data${index}.csv`, data, (err) => {
+    fs.appendFile(`${__dirname}/fake-data-sql/compressedData.csv`, data, (err) => {
       if (err) {
         reject(err);
       } else {
@@ -63,8 +58,8 @@ async function asyncCall() {
   for (let i = 0; i < 100; i += 1) {
     const records = generateRecords(i);
     await compress(records)
-      .then(data => writeFile(i, data))
-      .then(() => console.log(`write file ${i}`))
+      .then(data => appendFile(data))
+      .then(() => console.log(`append file ${i}`))
       .catch((err) => {
         throw err;
       });
