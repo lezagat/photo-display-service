@@ -25,19 +25,19 @@ const generateRecords = () => {
     const name = faker.random.arrayElement(restaurantNames);
     let str = '';
     for (let j = 0; j < newArr.length; j += 1) {
-      str += `${i + 1},${name},${newArr[j]}\n`;
+      str += `${i + 1},${name + (i + 1)},${newArr[j]}\n`;
     }
+    i += 1;
     if (!stream.write(str)) {
       return;
     }
-    i += 1;
   }
   stream.end();
   console.timeEnd('generate records');
   console.time('zip');
   const readStream = fs.createReadStream(rawDataPath);
   const writeStream = fs.createWriteStream(compressedDataPath);
-  const zip = zlib.createDeflate();
+  const zip = zlib.Deflate();
   readStream.pipe(zip).pipe(writeStream).on('finish', () => {
     readStream.destroy();
     writeStream.end();
