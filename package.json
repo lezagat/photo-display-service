@@ -6,12 +6,14 @@
   "scripts": {
     "test": "jest --verbose",
     "test:coverage": "jest --verbose --coverage",
-    "build": "webpack",
+    "build": "webpack --mode development --watch",
+    "build-prod": "webpack --mode production",
     "nosqldata": "node db/generateDataNoSQL.js",
     "sqldata": "node db/generateDataSQL.js",
     "seedp": "dropdb --if-exists photo_display && createdb photo_display && node db/decompressSQL.js && psql photo_display < db/schema.sql && rm db/fake-data-sql/rawData.csv",
     "seedc": "node db/decompressNoSQL.js && cqlsh -f db/schema.cql && rm db/fake-data-nosql/rawData.csv",
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "start-dev": "nodemon server/server.js"
   },
   "lint-staged": {
     "*.js": "eslint",
@@ -45,6 +47,7 @@
     "husky": "^2.3.0",
     "jest": "^24.8.0",
     "lint-staged": "^8.1.7",
+    "nodemon": "^1.19.1",
     "pre-commit": "^1.2.2",
     "sinon": "^7.3.2",
     "stylelint": "^10.0.1",
@@ -59,6 +62,7 @@
     "express": "^4.16.4",
     "faker": "^4.1.0",
     "mongoose": "^5.5.8",
+    "pg": "^7.11.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

@@ -5,7 +5,6 @@ CREATE TABLE photos (
   photo_url VARCHAR(255)
 );
 
-CREATE INDEX photos_photo_id ON photos(photo_id);
 CREATE INDEX photos_restaurant_id ON photos(restaurant_id);
 CREATE INDEX photos_restaurant_name ON photos(restaurant_name);
 
