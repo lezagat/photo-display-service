@@ -54,9 +54,11 @@ class Gallery extends React.Component {
     })
       .then(data => (data.json()))
       .then((data) => {
+        const name = data[0] ? data[0].restaurant_name : '';
+        const photos = data.map(photo => photo.photo_url);
         this.setState({
-          restaurantName: data.name,
-          imageUrls: data.photos,
+          restaurantName: name,
+          imageUrls: photos,
         });
       });
   }

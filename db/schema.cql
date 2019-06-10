@@ -1,12 +1,19 @@
-DROP KEYSPACE IF EXISTS cycling;
+DROP KEYSPACE IF EXISTS photo_display;
 
-CREATE KEYSPACE cycling
-  WITH REPLICATION = {
-   'class' : 'NetworkTopologyStrategy', 
-   'boston'  : 3 , // Datacenter 1 
-   'seattle' : 2 , // Datacenter 2
-   'tokyo'   : 2   // Datacenter 3
+CREATE KEYSPACE photo_display
+  WITH REPLICATION = { 
+   'class' : 'SimpleStrategy', 
+   'replication_factor' : 1 
   };
 
-USE cycling;
+USE photo_display;
 
+CREATE TABLE photos (
+   restaurant_id int PRIMARY KEY,
+   restaurant_name text,
+   photos list<text>,
+);
+
+CREATE INDEX photos_restaurant_name ON photos(restaurant_name);
+
+COPY photos (restaurant_id,restaurant_name,photos) FROM './db/fake-data-nosql/rawData.csv';

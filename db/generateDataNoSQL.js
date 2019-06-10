@@ -23,17 +23,17 @@ const generateRecords = () => {
     faker.helpers.shuffle(arr);
     const newArr = arr.slice(0, n).map(num => imageUrls[num]);
     const name = faker.random.arrayElement(restaurantNames);
-    if (!stream.write(`${i + 1},${name},[${newArr}]\n`)) {
+    i += 1;
+    if (!stream.write(`${i},${name + i},"[${newArr.map(url => `'${url}'`)}]"\n`)) {
       return;
     }
-    i += 1;
   }
   stream.end();
   console.timeEnd('generate records');
   console.time('zip');
   const readStream = fs.createReadStream(rawDataPath);
   const writeStream = fs.createWriteStream(compressedDataPath);
-  const zip = zlib.createDeflate();
+  const zip = zlib.Deflate();
   readStream.pipe(zip).pipe(writeStream).on('finish', () => {
     readStream.destroy();
     writeStream.end();

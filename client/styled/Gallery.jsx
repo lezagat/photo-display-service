@@ -10,12 +10,12 @@ const GalleryContainer = styled.div`
 
   @font-face {
     font-family: 'Calibre-Medium';
-    src: url("https://notoriousfec-bundles.s3.amazonaws.com/CalibreWeb-Medium.woff2") format('woff2');
+    src: url("./media/fonts/CalibreWeb-Medium.woff2") format('woff2');
   }
 
   @font-face {
     font-family: 'Calibre-Regular';
-    src: url("https://notoriousfec-bundles.s3.amazonaws.com/CalibreWeb-Regular.woff2") format('woff2');
+    src: url("./media/fonts/CalibreWeb-Regular.woff2") format('woff2');
   }
 
 `;
