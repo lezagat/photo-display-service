@@ -1,12 +1,11 @@
-# Project Name
+# photo-display-service
 
-> Photos module for Zagat.com
+> Photo gallery for a restaurant review service.
 
-## Related Projects
-
-  - https://github.com/the-notorious-f-e-c/zagat-reviews
-  - https://github.com/the-notorious-f-e-c/zagat-restaurant-info
-  - https://github.com/the-notorious-f-e-c/zagat-google-reviews
+## Stack
+**Front-End**: React, Styled Components<br />
+**Server**: Node.js Express<br />
+**Database**: Postgres<br />
 
 ## Table of Contents
 
