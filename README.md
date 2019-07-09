@@ -7,36 +7,14 @@
 **Server**: Node.js Express<br />
 **Database**: Postgres<br />
 
-## Table of Contents
 
-1. [Usage](#Usage)
-2. [Requirements](#requirements)
-3. [Development](#development)
-4. [API](#API)
+## Setting Up Environment
+1. Install dependencies with `npm install`
+2. Generate fake data by running `npm run sqldata`
+3. Seed database with fake data by running `npm run seedp`
+4. Bundle code with webpack by running `npm run build-prod`
+5. Run server with `npm start`
 
-## Usage
-
-> npm run seed to seed database (initial)
-> npm run build to compile jsx files to one bundle
-> npm run start 
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
-
-## Development
-
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-npm install -g webpack
-npm install
-```
 ## API
 - **[<code>GET</code> api/restaurants/:id/photos](https://github.com/lezagat/photo-display-service/blob/master/api-docs/get.md)**
 - **[<code>POST</code> api/restaurants/photos](https://github.com/lezagat/photo-display-service/blob/master/api-docs/post.md)**
